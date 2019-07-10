@@ -3,11 +3,7 @@ import PeanutCard from './components/PeanutCard';
 import PeanutBasket from './components/PeanutBasket';
 import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
-
-import  TestMiro  from './TestMiro.js';
-import  Footer  from './Footer.js';
-import  Body from './Body.js';
-import  header from './Header.js';
+2
 
 class App extends React.Component {
    constructor(props) {
