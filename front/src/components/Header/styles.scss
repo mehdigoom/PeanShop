@@ -1,0 +1,22 @@
+@import '../../App.scss';
+
+header {
+    @include size(10rem, 100%);
+    padding: 1rem 6rem;
+}
+
+nav hr {
+    background-color: $color-black;
+    border: 1px solid $color-black;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 3px;
+    margin: 5px 0;
+    transition: 0.3s;
+    &:first-child {
+      width: 30px;
+    }
+    &:nth-child(2){
+      width: 20px;
+    }
+}

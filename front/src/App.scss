@@ -1,0 +1,117 @@
+// Reset:
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+// Variables :
+$color-white: #FFF;
+$color-lightGrey: #F6F6F6;
+$color-darkGrey: #383838;
+$color-pink: #FCF0E3;
+$color-orange: #EF782A;
+$color-purple: #D7CEE8;
+$black-light: 0px 5px 15px 0px rgba(50, 50, 50, 0.3);
+
+.-flex {
+  display: flex;
+}
+
+.-pointerCursor {
+  cursor: pointer;
+}
+
+@mixin size($height, $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex($justify, $align, $direction) {
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+  @if $direction {
+    flex-direction: $direction;
+  }
+}
+
+figure img {
+  @include size(100%, 100%);
+  object-fit: cover;
+}
+
+.peanut-container {
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.wrapper {
+  flex-direction: column;
+  width: 75%;
+  // background-color: rgba(255, 255, 0, 0.959);
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  // background-color: rgba(255, 0, 0, 0.116);
+  padding: 1rem 6rem;
+  flex-wrap: wrap;
+  & > * {
+      margin: 1rem 0;
+  }
+}
+
+.sidebar {
+  width: 25%;
+  height: 100%;
+  background-color: $color-lightGrey;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+header {
+  width: 100%;
+  // background-color: #000000;
+  height: 100px;
+  padding: 1rem;
+}
+
+.delivery {
+  width: 100%;
+  height: 15rem;
+  background-color: $color-pink;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.delivery-figure {
+  width: 25rem;
+  height: 100%;
+}
+
+.delivery-message {
+  h4 {
+      color: $color-orange;
+      font-size: 1.5rem;
+      line-height: 5rem;
+  }
+  p {
+      color: $color-darkGrey;
+      font-size: 1rem;
+      font-weight: 300;
+  }
+}
+
+.peanut-filter {
+  width: 100%;
+}

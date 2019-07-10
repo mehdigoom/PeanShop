@@ -1,0 +1,23 @@
+@import '../../App.scss';
+
+.peanut-card {
+    figure {
+        border-radius: 7px;
+        overflow: hidden;
+        box-shadow: $black-light;
+        position: relative;
+        margin: 2rem 0;
+        @include size(12rem, 17rem);
+    }
+    figcaption {
+        display: block;
+        @include size(35px, 55px);
+        background-color: $color-white;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-top-left-radius: 10px;
+        line-height: 40px;
+        text-align: center;
+    }
+}

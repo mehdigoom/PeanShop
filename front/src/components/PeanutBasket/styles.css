@@ -1,0 +1,86 @@
+img.bonhom {
+    height: 50px;
+    width: 50px;
+}
+
+div.number {
+    background: rgb(165,164,217);
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    margin-left: 50px;
+    margin-top: 12px
+}
+
+div.edit{
+    background: #503e9d;
+    height: 100px;
+    width: 300px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 60px;
+    padding-top: 20px;
+    margin-bottom: 100px
+}
+
+.num {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px
+}
+
+div.inline{
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    margin-left: 30px
+}
+
+p.name {
+    margin-top: 15px
+}
+
+input.text{
+    color: white;
+    margin-left: 30px;
+    background: #503e9d; 
+    height: 60px;
+    border: none
+}
+
+div.line{
+    display: flex;
+    flex-direction: row;
+}
+
+img.stylo {
+    height: 30px;
+    width: 30px;
+    margin-left: 50px
+}
+
+img.product {
+    height: 70px;
+    width: 80px;
+    border-radius: 10px;
+    margin-left: 20px
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+div.violet{
+    background:rgb(165,164,217);
+    height: 60px;
+    width: 150px;
+    border-radius: 10px;
+    float: right
+}
+
+img.fleche{
+    height: 50px;
+    width: 50px;
+}
