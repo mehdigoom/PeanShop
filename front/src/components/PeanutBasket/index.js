@@ -8,7 +8,7 @@ class PeanutBasket extends Component {
     super(props);
   
     this.state = {
-      ID: "",
+      ID: "s",
        Username: "",
        passeword:"",
        nombrearticle:0,
@@ -73,7 +73,7 @@ Getbasket(ID){
 
 
     render() {
-      this.Getuser()
+      this.Getbasket(this.state.IDs)
       return (
           <div>
             <div className='inline'>
