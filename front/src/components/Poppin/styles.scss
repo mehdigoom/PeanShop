@@ -23,3 +23,7 @@
         top: 1rem;
     }
 }
+
+.-small {
+    @include size(30rem, 30rem);
+}
