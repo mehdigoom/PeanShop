@@ -95,13 +95,13 @@ class App extends React.Component {
     return (
         <section className="wrapper -flex">
           {displayModal && (
-            <Poppin onClick={this.togglePoppin}/>
+            <Poppin onClick={this.togglePoppin} size="small"/>
           )}
           <section className="sidebar">
             <PeanutBasket/>
           </section>
-            <Header/>
           <section className="container -flex">
+            <Header/>
           <article className="delivery -flex">
             <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
               <div className="delivery-message">
