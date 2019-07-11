@@ -1,0 +1,25 @@
+@import '../../App.scss';
+
+.poppin {
+    background-color: $color-blackTransparent;
+    position: fixed;
+    @include size(100vh, 100%);
+    @include flex(center, center, row);
+    @extend .fullPostion;
+    z-index: 5;
+}
+
+.poppin-wrapper {
+    @include size(30rem, 50rem);
+    border-radius: 10px;
+    z-index: 5;
+    background-color: $color-white;
+    position: relative;
+    i {
+        @extend .-pointerCursor;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+}
