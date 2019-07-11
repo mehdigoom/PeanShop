@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import './styles.scss'
 
 class Header extends Component {
+
+  togglePoppin = () => {
+    this.setState({
+      displayModal: !this.state.displayModal
+    })
+  }
+
   render() {
     return (
         <header>
@@ -11,7 +18,7 @@ class Header extends Component {
                 <span>PEAN'SHOP</span>
             </nav>
             <br/>
-              <a href='/'>Se connecter</a>
+              <span className='button' onClick={this.props.onLogin}>Se connecter</span>
         </header>
     )
   }
