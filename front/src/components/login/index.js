@@ -48,7 +48,10 @@ class Login extends Component {
     .then(data => {
       console.log(JSON.parse(data));})
       ;}
-    );
+    ).catch(function() {
+      console.log("error");
+  });;
+    
 
   }
 

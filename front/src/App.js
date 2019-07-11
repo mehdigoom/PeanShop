@@ -16,7 +16,8 @@ class App extends React.Component {
         ID: "",
         nombrearticle:0,
         IDarticle:0,
-        productList: []
+        productList: [],
+        user: []
       }
 
       this.ajoutarticle= this.ajoutarticle.bind(this);
