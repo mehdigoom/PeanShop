@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './components/Header';
 import PeanutCard from './components/PeanutCard';
 import PeanutBasket from './components/PeanutBasket';
 import './App.scss';
@@ -47,9 +48,9 @@ class App extends React.Component {
             <PeanutBasket/>
             {/* <TestMiro /> */}
           </section>
-          <header>
-              <nav></nav>
-          </header>
+            <header>
+                <nav></nav>
+            </header>
           <section className="container -flex">
           <article className="delivery -flex">
                 <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
