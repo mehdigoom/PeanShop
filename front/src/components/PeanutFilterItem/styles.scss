@@ -1,14 +1,12 @@
 @import '../../App.scss';
 
 .peanut-filter-item {
-    // width: 4rem;
-    // height: 7rem;
     @include size(7rem, 65px);
     padding: 1rem 0;
     border-radius: 50px;
     align-items: center;
     flex-direction: column;
-    box-shadow: 3px 10px 25px 0px $black-light;
+    box-shadow: 3px 10px 25px 0px $color-blackLight;
     background-color: $color-white;
     transition: background-color .2s ease-in;
     cursor: pointer;

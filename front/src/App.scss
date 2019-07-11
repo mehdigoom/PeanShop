@@ -14,9 +14,9 @@ $color-black: #000000;
 $color-pink: #FCF0E3;
 $color-orange: #EF782A;
 $color-purple: #D7CEE8;
-$black-light: 0px 5px 15px 0px rgba(50, 50, 50, 0.3);
+$color-blackLight: rgba(50, 50, 50, 0.15);
 $color-purpleDark: #503e9d;
-$black-light: rgba(50, 50, 50, 0.15);
+$color-blackTransparent: rgba(50, 50, 50, 0.9);
 
 .-flex {
   display: flex;
@@ -30,6 +30,8 @@ button {
   @extend .-pointerCursor;
 }
 
+// mixins :
+
 @mixin size($height, $width) {
   width: $width;
   height: $height;
@@ -37,20 +39,30 @@ button {
 
 @mixin flex($justify, $align, $direction) {
   display: flex;
-  @if $justify {
     justify-content: $justify;
-  }
-  @if $align {
     align-items: $align;
-  }
-  @if $direction {
     flex-direction: $direction;
+}
+
+@mixin absolutePos($center) {
+  position: absolute;
+  @if $center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
 figure img {
   @include size(100%, 100%);
   object-fit: cover;
+}
+
+.fullPostion {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .peanut-container {
