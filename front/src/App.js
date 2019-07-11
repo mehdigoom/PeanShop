@@ -98,7 +98,6 @@ class App extends React.Component {
             <Header onLogin={this.togglePoppin}/>
 
           <section className="container -flex">
-            <Header/>
           <article className="delivery -flex">
             <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
               <div className="delivery-message">
