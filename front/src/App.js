@@ -82,15 +82,18 @@ class App extends React.Component {
         <section className="wrapper -flex">
           <section className="sidebar">
             <PeanutBasket/>
+            
           </section>
-            <Header/>
+            <Header/
+            >
           <section className="container -flex">
           <article className="delivery -flex">
                 <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
                 <div className="delivery-message">
                     <h4>Don't wait to long to be delivered !</h4>
                   <p>lorem ipsum dolor sit amet ...</p>
-                  
+        
+
               </div>
             </article> 
             <h2>Choose your peanut</h2>
@@ -102,10 +105,24 @@ class App extends React.Component {
             </section>    
             <section className="peanut-container -flex">
               { productItem }
+              
             </section>
           </section>
           {/* <Route path="/login/" component={login} /> */}
+          <p>Connexion</p>
+            <form>
+
+  <label>
+    Login :
+    <input type="text" name="name" />
+    passeword :
+    <input type="password" name="Password" />
+  </label>
+  <input type="submit" value="Envoyer" />
+</form>
+       
         </section>
+        
     )} 
 
    }

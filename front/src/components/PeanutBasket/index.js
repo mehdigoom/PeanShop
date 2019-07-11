@@ -21,13 +21,19 @@ class PeanutBasket extends Component {
  
 }
 
-Getuser(){
-  fetch('http://127.0.0.1:5000/users/')
+Getuser(user){
+  var obj = { email: this.state.Username, password: this.state.passeword };
+  var myJSON = JSON.stringify(obj);
+  var find = 0;
+  fetch('http://127.0.0.1:5000/users/login')
   .then(function (response) {
       response.json()
           .then(function (value) {
               console.log(value);
-           
+             
+var user = value[find].firstname
+
+console.log(user) 
               //return(value)
               
           });
@@ -57,7 +63,7 @@ Getbasket(ID){
       response.json()
           .then(function (value) {
               console.log(value);
-           
+          
               //return(value)
               
           });
