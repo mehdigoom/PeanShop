@@ -5,6 +5,9 @@ import PeanutBasket from './components/PeanutBasket';
 import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
 import { productService } from './_services/product.service';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import login from './components/login';
+
 
 class App extends React.Component {
    constructor(props) {
@@ -79,9 +82,7 @@ class App extends React.Component {
           <section className="sidebar">
             <PeanutBasket/>
           </section>
-            <header>
-                <nav></nav>
-            </header>
+            <Header/>
           <section className="container -flex">
           <article className="delivery -flex">
                 <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
@@ -102,6 +103,7 @@ class App extends React.Component {
               { productItem }
             </section>
           </section>
+          <Route path="/login/" component={login} />
         </section>
     )} 
 

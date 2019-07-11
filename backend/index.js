@@ -59,6 +59,14 @@ app.delete('/delbasket/:id', (req, res) => {
   }, req.params.id);
 });
 
+app.delete('/delproduct/:id', (req, res) => {
+  database.delProduct( (err, basket) => {
+    if (err) return res.status(500).send(err);
+    return res.status(200).send(basket);
+  }, req.params.id);
+});
+
+
 app.patch('/users', (req, res) => {
   database.updateUser((err, user) => {
     console.log(`User -${req.body.firstname}- updated.`);
