@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './styles.scss'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import login from './components/login';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import login from './components/login';
 
 class Header extends Component {
   render() {
@@ -13,9 +13,9 @@ class Header extends Component {
                 <span>PEAN'SHOP</span>
             </nav>
             <br/>
-            <ul>
+            {/* <ul>
               <li><Link to="/login/">React</Link></li>
-            </ul>
+            </ul> */}
         </header>
     )
   }

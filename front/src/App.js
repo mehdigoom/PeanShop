@@ -5,7 +5,7 @@ import PeanutBasket from './components/PeanutBasket';
 import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
 import { productService } from './_services/product.service';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import login from './components/login';
 
 
@@ -104,7 +104,7 @@ class App extends React.Component {
               { productItem }
             </section>
           </section>
-          <Route path="/login/" component={login} />
+          {/* <Route path="/login/" component={login} /> */}
         </section>
     )} 
 
