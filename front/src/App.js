@@ -6,28 +6,21 @@ import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
 import { productService } from './_services/product.service';
 import Poppin from './components/Poppin';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import login from './components/login';
-
 
 class App extends React.Component {
-
-  constructor(props) {
-     super(props);
-	
-     this.state = {
-       ID: "",
-        Username: "",
-        passeword:"",
-        nombrearticle:0,
-        IDarticle:0,
-        productList: []
-     }
-
-     this.ajoutarticle= this.ajoutarticle.bind(this);
-     this.retirarticle= this.retirarticle.bind(this);
-     this.viderarticle= this.viderarticle.bind(this);
-  }
+   constructor(props) {
+      super(props);
+		
+      this.state = {
+        ID: "",
+         nombrearticle:0,
+         IDarticle:0,
+         productList: []
+      }
+      this.ajoutarticle= this.ajoutarticle.bind(this);
+      this.retirarticle= this.retirarticle.bind(this);
+      this.viderarticle= this.viderarticle.bind(this);
+   }
 
   viderarticle() {
     this.setState({
@@ -120,16 +113,6 @@ class App extends React.Component {
               { productItem }
             </section>
           </section>
-            <p>Connexion</p>
-            <form>
-              <label>
-                Login :
-                <input type="text" name="name" />
-                passeword :
-                <input type="password" name="Password" />
-              </label>
-              <input type="submit" value="Envoyer" />
-          </form>
         </section>
     )} 
 
