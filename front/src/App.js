@@ -3,7 +3,7 @@ import PeanutCard from './components/PeanutCard';
 import PeanutBasket from './components/PeanutBasket';
 import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
-2
+
 
 class App extends React.Component {
    constructor(props) {
@@ -56,6 +56,7 @@ class App extends React.Component {
                 <div className="delivery-message">
                     <h4>Don't wait to long to be delivered !</h4>
                   <p>lorem ipsum dolor sit amet ...</p>
+                  
               </div>
             </article> 
             <h2>Choose your peanut</h2>
