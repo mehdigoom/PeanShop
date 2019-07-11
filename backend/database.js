@@ -5,7 +5,6 @@ var client= mysql.createConnection({
   user: 'root',
   password: '',
   database: 'peanshop',
-  port: 	5000,
 });
   
 client.connect(function(err) {
