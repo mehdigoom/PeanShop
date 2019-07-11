@@ -17,17 +17,54 @@ class PeanutBasket extends Component {
    // this.ajoutarticle= this.ajoutarticle.bind(this);
    
  }
+ populateHeader(jsonObj) {
+ 
+}
+
 Getuser(){
   fetch('http://127.0.0.1:5000/users/')
   .then(function (response) {
       response.json()
           .then(function (value) {
               console.log(value);
+           
               //return(value)
+              
           });
   });
 
 }
+
+Getarticle(){
+  fetch('http://127.0.0.1:5000/products')
+  .then(function (response) {
+      response.json()
+          .then(function (value) {
+              console.log(value);
+           
+              //return(value)
+              
+          });
+  });
+
+}
+
+
+
+Getbasket(ID){
+  fetch('http://127.0.0.1:5000//basket/'+ID)
+  .then(function (response) {
+      response.json()
+          .then(function (value) {
+              console.log(value);
+           
+              //return(value)
+              
+          });
+  });
+
+}
+
 
     render() {
       this.Getuser()
