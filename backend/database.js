@@ -3,9 +3,9 @@ var mysql = require('mysql');
 var client= mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'root',
   database: 'peanshop',
-  
+  port: 	8889,
 });
   
 client.connect(function(err) {
@@ -63,7 +63,14 @@ const displayCart = function displayCart(clbk) {
     if (error) return clbk(error, null);
     console.log(sql)
       return clbk(null, results);
+  });
+}
 
+const getProductsByCategory = function getProductsByCategory(clbk, category) {
+  let sql = "SELECT * FROM products WHERE category = ?";
+  client.query(sql, [category], (error, results) => {
+    if (error) return clbk(error, null);
+    return clbk(null, results);
   });
 }
  
@@ -125,5 +132,7 @@ module.exports = {
   updateUser,
   loginUser,
   delProduct,
-  displayCart
+  displayCart,
+  getProductsByCategory,
+
 };  
