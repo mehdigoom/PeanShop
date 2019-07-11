@@ -41,7 +41,11 @@ const getProducts = function getProducts(clbk) {
 }
 
 const getBasket = function getBasket(clbk, id) {
-  let sql = "SELECT * FROM basket WHERE users_id = ?";
+  let sql = "SELECT quantity, name, description, price, category, \
+  picture, firstname, basket.id AS basket_id, products.id AS products_id, \
+  users.id AS users_id FROM basket INNER JOIN products \
+  ON products.id = basket.products_id INNER JOIN users \
+  ON users.id = basket.users_id WHERE users_id = ?";
   client.query(sql, [id], (error, results, fields) => {
       
     if (error) return clbk(error, null);
