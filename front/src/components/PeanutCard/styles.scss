@@ -1,17 +1,22 @@
 @import '../../App.scss';
 
+.figure-size {
+    @include size(12rem, 17rem);
+}
+
 .peanut-card {
+    margin: 2rem 0;
+    position: relative;
     figure {
         border-radius: 7px;
         overflow: hidden;
-        box-shadow: $black-light;
+        // box-shadow: $black-light;    
         position: relative;
-        margin: 2rem 0;
-        @include size(12rem, 17rem);
+        @extend .figure-size;
+        border: 1px solid $color-lightGrey;
     }
     figcaption {
         display: block;
-        @include size(35px, 55px);
         background-color: $color-white;
         position: absolute;
         right: 0;
@@ -19,5 +24,47 @@
         border-top-left-radius: 10px;
         line-height: 40px;
         text-align: center;
+        @include size(2rem, 4rem);
     }
+    p {
+        margin-top: 1rem;
+    }
+    &:hover {
+        .detail {
+            opacity: 1;
+        }
+    }
+}
+
+.detail {
+    opacity: 0;
+    transition: opacity .2s ease-in;
+    @extend .figure-size;
+    position: absolute;
+    border-radius: 7px;
+    @include flex(center, center, row);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    button {
+        border: none;
+        border-radius: 3px;
+        margin: .5rem;
+        @include size(10rem, 7rem);
+        @include flex(center, stretch, column);
+        i {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.add-to-card-button {
+    background-color: $color-white;
+}
+
+.detail-button {
+    background-color: $color-purpleDark;
+    color: $color-white;
 }

@@ -48,7 +48,7 @@ Getuser(){
             </div>
             <section>
               <div className='line'>
-                <img className='product' alt='' src={require('./../../chocolate_blue.png')}/>
+                {/* <img className='product' alt='' src={require('./../../chocolate_blue.png')}/> */}
                 <p>1x Peanut bar 30$</p>
               </div>
               <div className='line second'>
@@ -64,7 +64,7 @@ Getuser(){
             <div className='violet'>
               <div className='line'>
               <a href='/'>Buy</a>
-                <img className='fleche' alt='' src={require('./../../fleche_maq.png')}/>
+                {/* <img className='fleche' alt='' src={require('./../../fleche_maq.png')}/> */}
               </div>
             </div>
           </div>

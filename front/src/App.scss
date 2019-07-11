@@ -10,10 +10,13 @@
 $color-white: #FFF;
 $color-lightGrey: #F6F6F6;
 $color-darkGrey: #383838;
+$color-black: #000000;
 $color-pink: #FCF0E3;
 $color-orange: #EF782A;
 $color-purple: #D7CEE8;
 $black-light: 0px 5px 15px 0px rgba(50, 50, 50, 0.3);
+$color-purpleDark: #503e9d;
+$black-light: rgba(50, 50, 50, 0.15);
 
 .-flex {
   display: flex;
@@ -23,12 +26,17 @@ $black-light: 0px 5px 15px 0px rgba(50, 50, 50, 0.3);
   cursor: pointer;
 }
 
+button {
+  @extend .-pointerCursor;
+}
+
 @mixin size($height, $width) {
   width: $width;
   height: $height;
 }
 
 @mixin flex($justify, $align, $direction) {
+  display: flex;
   @if $justify {
     justify-content: $justify;
   }
@@ -47,8 +55,8 @@ figure img {
 
 .peanut-container {
   width: 100%;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .wrapper {

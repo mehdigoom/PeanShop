@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from './components/Header';
 import PeanutCard from './components/PeanutCard';
 import PeanutBasket from './components/PeanutBasket';
 import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
-
+import { productService } from './_services/product.service';
 
 class App extends React.Component {
    constructor(props) {
@@ -15,6 +16,7 @@ class App extends React.Component {
          passeword:"",
          nombrearticle:0,
          IDarticle:0,
+         productList: []
       }
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
@@ -39,17 +41,48 @@ class App extends React.Component {
     } 
   }
 
+  async getProduct() {
+    const res = await productService.getProduct()
+    this.setState({
+      productList: res.data
+    })
+  }
+
+   async filterPeanuts (category) {
+    if (!category) return this.getProduct()
+    const res = await productService.filterProducts(category)
+    this.setState({
+      productList: res.data
+    })
+  }
+
+  componentDidMount() {
+    this.getProduct()
+  }
+
   render() {
+    const { productList } = this.state
+
+    const productItem = productList.map((product) => (
+      <PeanutCard 
+        key={product.id}
+        src={product.picture}
+        alt={product.name}
+        price={product.price}
+        name={product.name}
+        showDetails={() => alert(product.description)}
+        // addToCard={}
+      />
+    ))
 
     return (
         <section className="wrapper -flex">
           <section className="sidebar">
             <PeanutBasket/>
-            {/* <TestMiro /> */}
           </section>
-          <header>
-              <nav></nav>
-          </header>
+            <header>
+                <nav></nav>
+            </header>
           <section className="container -flex">
           <article className="delivery -flex">
                 <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
@@ -61,15 +94,13 @@ class App extends React.Component {
             </article> 
             <h2>Choose your peanut</h2>
             <section className="peanut-filter -flex">
-              <PeanutFilterItem label="All" />
-              <PeanutFilterItem label="Bottle" />
-              <PeanutFilterItem label="Cake" />
+              <PeanutFilterItem label="All" src="https://i.imgur.com/lgObM0q.png" filter={() => this.filterPeanuts()}/>
+              <PeanutFilterItem label="Sweetmeat" src="https://i.imgur.com/XP8LHXh.png" filter={() => this.filterPeanuts("Confiserie")}/>
+              <PeanutFilterItem label="Cake" src="https://i.imgur.com/gtJKyyI.png" filter={() => this.filterPeanuts("Patisserie")}/>
+              <PeanutFilterItem label="Ice" src="https://i.imgur.com/N75xDCz.png" filter={() => this.filterPeanuts("Glaces")}/>
             </section>    
             <section className="peanut-container -flex">
-              {/* exemple peanut card */}
-                <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
-                <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
-                <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
+              { productItem }
             </section>
           </section>
         </section>
@@ -77,6 +108,4 @@ class App extends React.Component {
 
    }
    
-
-
 export default App;

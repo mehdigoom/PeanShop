@@ -51,6 +51,14 @@ const getBasket = function getBasket(clbk, id) {
 
   });
 }
+
+const getProductsByCategory = function getProductsByCategory(clbk, category) {
+  let sql = "SELECT * FROM products WHERE category = ?";
+  client.query(sql, [category], (error, results) => {
+    if (error) return clbk(error, null);
+    return clbk(null, results);
+  });
+}
  
 const delBasket = function delBasket(clbk, id) {
   let sql = "DELETE FROM basket WHERE users_id = ?";
@@ -101,4 +109,5 @@ module.exports = {
   delBasket,
   updateUser,
   loginUser,
+  getProductsByCategory,
 };  

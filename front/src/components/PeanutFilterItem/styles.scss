@@ -8,7 +8,7 @@
     border-radius: 50px;
     align-items: center;
     flex-direction: column;
-    box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.38);
+    box-shadow: 3px 10px 25px 0px $black-light;
     background-color: $color-white;
     transition: background-color .2s ease-in;
     cursor: pointer;
@@ -16,6 +16,11 @@
     &:first-child {
         background-color: $color-purple;
         margin-left: 0;
+    }
+    &:nth-child(2) {
+        p {
+            font-size: .8rem;
+        }
     }
     figure {
         width: 40px;
