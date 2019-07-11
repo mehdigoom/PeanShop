@@ -3,11 +3,11 @@ import './styles.scss'
 
 class PeanutFilterItem extends Component {
   render() {
-      const { src, alt, label } = this.props
+      const { label, filter, src } = this.props
     return (
-        <div className="peanut-filter-item flex">
+        <div className="peanut-filter-item flex" onClick={filter}>
             <figure>
-                <img src="https://i.imgur.com/jyvyD7B.png" alt="Peanut" />
+                <img src={src} alt="Peanut" />
             </figure>
             <p>{label}</p>
         </div>

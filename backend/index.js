@@ -2,6 +2,7 @@ const http = require('http');
 const database = require("./database");
 const hostname = '127.0.0.1';
 const port = 5000;
+const cors = require("cors");
 
 http.createServer((req, res) => {
   res.statusCode = 200;
@@ -15,6 +16,7 @@ var bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('root at at api')
