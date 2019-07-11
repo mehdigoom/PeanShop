@@ -6,6 +6,7 @@ import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
 import { productService } from './_services/product.service';
 import Poppin from './components/Poppin';
+import Login from './components/login';
 
 class App extends React.Component {
    constructor(props) {
@@ -13,10 +14,11 @@ class App extends React.Component {
 		
       this.state = {
         ID: "",
-         nombrearticle:0,
-         IDarticle:0,
-         productList: []
+        nombrearticle:0,
+        IDarticle:0,
+        productList: []
       }
+
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
       this.viderarticle= this.viderarticle.bind(this);
@@ -88,11 +90,13 @@ class App extends React.Component {
     return (
         <section className="wrapper -flex">
           {displayModal && (
-            <Poppin onClick={this.togglePoppin} size="small"/>
+            <Poppin onClick={this.togglePoppin} children={<Login/>}/>
           )}
           <section className="sidebar">
             <PeanutBasket/>
           </section>
+            <Header onLogin={this.togglePoppin}/>
+
           <section className="container -flex">
             <Header/>
           <article className="delivery -flex">
