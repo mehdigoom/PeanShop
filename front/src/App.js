@@ -5,8 +5,6 @@ import PeanutBasket from './components/PeanutBasket';
 import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
 import { productService } from './_services/product.service';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import login from './components/login';
 
 
 class App extends React.Component {
@@ -15,8 +13,6 @@ class App extends React.Component {
 		
       this.state = {
         ID: "",
-         Username: "",
-         passeword:"",
          nombrearticle:0,
          IDarticle:0,
          productList: []
@@ -108,18 +104,7 @@ class App extends React.Component {
               
             </section>
           </section>
-          {/* <Route path="/login/" component={login} /> */}
           <p>Connexion</p>
-            <form>
-
-  <label>
-    Login :
-    <input type="text" name="name" />
-    passeword :
-    <input type="password" name="Password" />
-  </label>
-  <input type="submit" value="Envoyer" />
-</form>
        
         </section>
         
