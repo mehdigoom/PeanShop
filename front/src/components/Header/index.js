@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './styles.scss'
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import login from './components/login';
 
 class Header extends Component {
   render() {
@@ -8,8 +10,12 @@ class Header extends Component {
             <nav>
                 <hr />
                 <hr />
-                <span>peanuts</span>
+                <span>PEAN'SHOP</span>
             </nav>
+            <br/>
+            {/* <ul>
+              <li><Link to="/login/">React</Link></li>
+            </ul> */}
         </header>
     )
   }

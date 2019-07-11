@@ -2,8 +2,7 @@ const http = require('http');
 const database = require("./database");
 const hostname = '127.0.0.1';
 const port = 5000;
-const cors = require("cors");
-
+const cors = require("cors")
 http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
@@ -16,8 +15,7 @@ var bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
-
+app.use(cors())
 app.get('/', (req, res) => {
   res.send('root at at api')
 });
@@ -66,6 +64,14 @@ app.delete('/delbasket/:id', (req, res) => {
     return res.status(200).send(basket);
   }, req.params.id);
 });
+
+app.delete('/delproduct/:id', (req, res) => {
+  database.delProduct( (err, basket) => {
+    if (err) return res.status(500).send(err);
+    return res.status(200).send(basket);
+  }, req.params.id);
+});
+
 
 app.patch('/users', (req, res) => {
   database.updateUser((err, user) => {

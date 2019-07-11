@@ -5,7 +5,6 @@ var client= mysql.createConnection({
   user: 'root',
   password: '',
   database: 'peanshop',
-  
 });
   
 client.connect(function(err) {
@@ -52,6 +51,20 @@ const getBasket = function getBasket(clbk, id) {
   });
 }
 
+const displayCart = function displayCart(clbk) {
+  let sql = "SELECT quantity, name, description, price, category, \
+  picture, firstname, basket.id AS basket_id, products.id AS products_id, \
+  users.id AS users_id FROM basket INNER JOIN products \
+  ON products.id = basket.products_id INNER JOIN users \
+  ON users.id = basket.users_id";
+  client.query(sql, (error, results, fields) => {
+      
+    if (error) return clbk(error, null);
+    console.log(sql)
+      return clbk(null, results);
+  });
+}
+
 const getProductsByCategory = function getProductsByCategory(clbk, category) {
   let sql = "SELECT * FROM products WHERE category = ?";
   client.query(sql, [category], (error, results) => {
@@ -62,6 +75,14 @@ const getProductsByCategory = function getProductsByCategory(clbk, category) {
  
 const delBasket = function delBasket(clbk, id) {
   let sql = "DELETE FROM basket WHERE users_id = ?";
+  client.query(sql, [id], (error, results, fields) => {
+      if (error) return clbk(error, null);
+      return clbk(null, results);
+  });
+}
+
+const delProduct = function delProduct(clbk, id) {
+  let sql = "DELETE FROM basket WHERE products_id = ?";
   client.query(sql, [id], (error, results, fields) => {
       if (error) return clbk(error, null);
       return clbk(null, results);
@@ -109,5 +130,8 @@ module.exports = {
   delBasket,
   updateUser,
   loginUser,
+  delProduct,
+  displayCart,
   getProductsByCategory,
+
 };  

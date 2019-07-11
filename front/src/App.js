@@ -6,6 +6,9 @@ import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
 import { productService } from './_services/product.service';
 import Poppin from './components/Poppin';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import login from './components/login';
+
 
 class App extends React.Component {
 
@@ -90,36 +93,44 @@ class App extends React.Component {
     ))
 
     return (
-      <section className="wrapper -flex">
-        {displayModal && (
-          <Poppin onClick={this.togglePoppin}/>
-        )}
-        <section className="sidebar">
-          <PeanutBasket/>
-        </section>
-          <header>
-              <nav></nav>
-          </header>
-        <section className="container -flex">
-          <article className="delivery -flex">
-              <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
-              <div className="delivery-message">
-                <h4>Don't wait to long to be delivered !</h4>
-                <p>lorem ipsum dolor sit amet ...</p>
-              </div>
-          </article> 
-          <h2>Choose your peanut</h2>
-          <section className="peanut-filter -flex">
-            <PeanutFilterItem label="All" src="https://i.imgur.com/lgObM0q.png" filter={() => this.filterPeanuts()}/>
-            <PeanutFilterItem label="Sweetmeat" src="https://i.imgur.com/XP8LHXh.png" filter={() => this.filterPeanuts("Confiserie")}/>
-            <PeanutFilterItem label="Cake" src="https://i.imgur.com/gtJKyyI.png" filter={() => this.filterPeanuts("Patisserie")}/>
-            <PeanutFilterItem label="Ice" src="https://i.imgur.com/N75xDCz.png" filter={() => this.filterPeanuts("Glaces")}/>
-          </section>    
-          <section className="peanut-container -flex">
-            { productItem }
+        <section className="wrapper -flex">
+          {displayModal && (
+            <Poppin onClick={this.togglePoppin}/>
+          )}
+          <section className="sidebar">
+            <PeanutBasket/>
           </section>
+            <Header/>
+          <section className="container -flex">
+          <article className="delivery -flex">
+            <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
+              <div className="delivery-message">
+                  <h4>Don't wait to long to be delivered !</h4>
+                  <p>lorem ipsum dolor sit amet ...</p>
+              </div>
+            </article> 
+            <h2>Choose your peanut</h2>
+            <section className="peanut-filter -flex">
+              <PeanutFilterItem label="All" src="https://i.imgur.com/lgObM0q.png" filter={() => this.filterPeanuts()}/>
+              <PeanutFilterItem label="Sweetmeat" src="https://i.imgur.com/XP8LHXh.png" filter={() => this.filterPeanuts("Confiserie")}/>
+              <PeanutFilterItem label="Cake" src="https://i.imgur.com/gtJKyyI.png" filter={() => this.filterPeanuts("Patisserie")}/>
+              <PeanutFilterItem label="Ice" src="https://i.imgur.com/N75xDCz.png" filter={() => this.filterPeanuts("Glaces")}/>
+            </section>    
+            <section className="peanut-container -flex">
+              { productItem }
+            </section>
+          </section>
+            <p>Connexion</p>
+            <form>
+              <label>
+                Login :
+                <input type="text" name="name" />
+                passeword :
+                <input type="password" name="Password" />
+              </label>
+              <input type="submit" value="Envoyer" />
+          </form>
         </section>
-      </section>
     )} 
 
   }
