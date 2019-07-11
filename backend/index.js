@@ -43,6 +43,14 @@ app.get('/basket/:id', (req, res) => {
   }, req.params.id);
 });
 
+app.get('/products/category=:category', (req, res) => {
+  database.getProductsByCategory( (err, products) => {
+    if (err) return res.status(500).send(err);
+    return res.status(200).send(products);
+  }, req.params.category);
+});
+
+
 app.post('/addbasket', (req, res) => {
  
   database.addBasket( (err, basket) => {

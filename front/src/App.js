@@ -47,15 +47,16 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount() {
-    this.getProduct()
+   async filterPeanuts (category) {
+    if (!category) return this.getProduct()
+    const res = await productService.filterProducts(category)
+    this.setState({
+      productList: res.data
+    })
   }
 
-  filterPeanuts = category => {
-    const { productList: peanuts } = this.state
-    let filteredPeanuts = [...peanuts]
-    if (!category) this.getProduct()
-    return filteredPeanuts.filter(peanut => peanut.category === category)
+  componentDidMount() {
+    this.getProduct()
   }
 
   render() {
@@ -92,10 +93,10 @@ class App extends React.Component {
             </article> 
             <h2>Choose your peanut</h2>
             <section className="peanut-filter -flex">
-              <PeanutFilterItem label="All" src="https://i.imgur.com/lgObM0q.png" filter={() => this.setState({productList: this.filterPeanuts()})}/>
-              <PeanutFilterItem label="Sweetmeat" src="https://i.imgur.com/XP8LHXh.png" filter={() => this.setState({productList: this.filterPeanuts("Confiserie")})}/>
-              <PeanutFilterItem label="Cake" src="https://i.imgur.com/gtJKyyI.png" filter={() => this.setState({productList: this.filterPeanuts("Patisserie")})}/>
-              <PeanutFilterItem label="Ice" src="https://i.imgur.com/N75xDCz.png" filter={() => this.setState({productList: this.filterPeanuts("Glaces")})}/>
+              <PeanutFilterItem label="All" src="https://i.imgur.com/lgObM0q.png" filter={() => this.filterPeanuts()}/>
+              <PeanutFilterItem label="Sweetmeat" src="https://i.imgur.com/XP8LHXh.png" filter={() => this.filterPeanuts("Confiserie")}/>
+              <PeanutFilterItem label="Cake" src="https://i.imgur.com/gtJKyyI.png" filter={() => this.filterPeanuts("Patisserie")}/>
+              <PeanutFilterItem label="Ice" src="https://i.imgur.com/N75xDCz.png" filter={() => this.filterPeanuts("Glaces")}/>
             </section>    
             <section className="peanut-container -flex">
               { productItem }
