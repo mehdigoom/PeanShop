@@ -88,12 +88,12 @@ Getbasket = (ID) => {
 
         
               <div className='line second'>
-                <img className='product' alt='' src={require('./../../peanut_butter.jpg')}/>
+              
                 <div>
                  {
                    this.state.value.map(listItems => {
                     
-                   return ( <ul i key={listItems.products_id} >{listItems.name}</ul > );
+                   return ( <ul i key={listItems.products_id} ><img className='product' src={listItems.picture}></img> {listItems.name}</ul > );
                     
               
                    
