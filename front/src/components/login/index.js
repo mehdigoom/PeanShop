@@ -44,13 +44,22 @@ class Login extends Component {
     headers: { "Content-Type": "application/json" }, 
     body: JSON.stringify({email, password})
     })
-    .then(response => {response.text()
+    .then(response => {
+      response.text()
+      console.log(response);
+    })
     .then(data => {
-      console.log(JSON.parse(data));})
-      ;}
-    ).catch(function() {
-      console.log("error");
-  });;
+        this.setState({
+        email: JSON.parse(data).email,
+        password: JSON.parse(data).password,
+      })
+    })
+    .catch(function() {
+      console.log("error",
+      alert('Mauvais identifiants'));
+  });
+
+
     
 
   }

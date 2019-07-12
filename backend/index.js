@@ -91,7 +91,7 @@ app.patch('/users', (req, res) => {
 app.post('/user/login', (req, res) => {
   database.loginUser( (err, user) => {
     if (err) return res.status(500).send(err);
-    else if (!user) return res.send("Bad informations ...");
+    else if (!user) return res.status(500).send("Bad informations ...");
     console.log('User', user)
     res.status(200).send(user)
   }, req.body);
