@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './styles.css'
+import ShoppingCardItem from '../ShoppingCardItem';
 
 
 class PeanutBasket extends Component {
@@ -61,6 +62,7 @@ Getbasket = (ID) => {
   });
 
 }
+
  componentDidMount() {
    this.Getbasket(this.state.ID)
 
@@ -98,10 +100,8 @@ this.setState({
                  {
                    this.state.value.map(listItems => {
                   
-                   return ( <ul  key={listItems.products_id} ><img className='product' src={listItems.picture}></img> {listItems.name} {listItems.price}$</ul> );
+                   return ( <ShoppingCardItem  key={listItems.products_id} quantity={listItems.quantity} name={listItems.name} price={listItems.price} src={listItems.picture}></ShoppingCardItem> );
                     
-              
-                   
                    })
                  } 
                 </div>

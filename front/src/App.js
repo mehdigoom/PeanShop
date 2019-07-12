@@ -97,6 +97,28 @@ class App extends React.Component {
   //   console.log(priceArray);
   // }
 
+  deletebasket = (ID) => {
+    // fetch('http://127.0.0.1:5000//delproduct/'+ID,  {method: "DELETE", 
+    // headers: { "Content-Type": "application/json" }, 
+    // body: JSON.stringify({ID})
+    // })
+    // .then( (response) => {
+    //     response.json()
+    //         .then((value1)=> {
+    //           this.setState({
+    //            value:value1
+    //          })
+    //            return(value1)
+                
+                 
+    //         });
+    // });
+    console.log("inside function");
+    console.log("id", ID);
+  
+  }
+  
+
   componentDidMount() {
     this.getProduct()
   }
@@ -124,6 +146,7 @@ class App extends React.Component {
         price={product.price}
         name={product.name}
         quantity="1"
+        onDelete={console.log('totoi')}
       />
     ))
 
