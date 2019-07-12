@@ -8,6 +8,7 @@ import { productService } from './_services/product.service';
 import Poppin from './components/Poppin';
 import ProductDescription from './components/PeanutDescription';
 import ShoppingCardItem from './components/ShoppingCardItem';
+import Login from './components/login';
 
 class App extends React.Component {
    constructor(props) {
@@ -20,7 +21,12 @@ class App extends React.Component {
          productList: [],
          product: [],
          productBasket: [],
+        nombrearticle:0,
+        IDarticle:0,
+        productList: [],
+        user: []
       }
+
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
       this.viderarticle= this.viderarticle.bind(this);
@@ -137,14 +143,16 @@ class App extends React.Component {
                 />
             </Poppin>
           )}
+          {/* <Poppin onClick={this.togglePoppin} children={<Login/>}/> */}
           <section className="sidebar">
             {/* <PeanutBasket/> */}
             <div className="product-basket-wrapper">
               { productBasketItem }
             </div>
           </section>
+            <Header onLogin={this.togglePoppin}/>
+
           <section className="container -flex">
-            <Header/>
           <article className="delivery -flex">
             <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
               <div className="delivery-message">

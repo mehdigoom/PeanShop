@@ -5,7 +5,7 @@ class Login extends Component {
     super(props);
     
     this.state = {
-      username: "",
+      email: "",
       password:"",
       submitted: false,
     }
@@ -23,9 +23,9 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { username, password} = this.state;
+    const { email, password} = this.state;
 
-    console.log("username :", username);
+    console.log("email :", email);
     console.log("password :", password);
     
     
@@ -33,7 +33,7 @@ class Login extends Component {
       submitted: true,
     })
 
-    if (!(this.state.username && this.state.password)) {
+    if (!(this.state.email && this.state.password)) {
       console.log("return");
       return;
     }
@@ -42,39 +42,38 @@ class Login extends Component {
     return fetch("http://localhost:5000/user/login", 
     {method: "POST", 
     headers: { "Content-Type": "application/json" }, 
-    body: JSON.stringify({username, password})
+    body: JSON.stringify({email, password})
     })
     .then(response => {response.text()
     .then(data => {
       console.log(JSON.parse(data));})
       ;}
-    );
+    ).catch(function() {
+      console.log("error");
+  });;
+    
 
   }
 
     render() {
-      const { username, password } = this.state;
+      const { email, password } = this.state;
       return (
         <React.Fragment>
           <form name="form" onSubmit={this.handleSubmit}>
-            <label>
-              Login :
+          <label htmlFor="email">Email</label>
               <input type="text"
-              className="form-control"
-              name="username"
-              value={username}
+              name="email"
+              value={email}
               onChange={this.handleChange}
               />
-              passeword :
+              <label htmlFor="password">Password</label>
               <input type="password"
-              className="form-control"
               name="password"
               value={password}
               onChange={this.handleChange}/>
-            </label>
             <input type="submit" value="Envoyer" onClick={this.handleSubmit} />
           </form>
-          {this.state.submitted && !username && (<p>username required !</p>)}
+          {this.state.submitted && !email && (<p>email required !</p>)}
           {this.state.submitted && !password && (<p>password required !</p>)}
         </React.Fragment>
       )
