@@ -92,8 +92,8 @@ Getbasket = (ID) => {
                 <div>
                  {
                    this.state.value.map(listItems => {
-                     var numbers
-                  numbers.map((number) => <li>{number}</li> ); return ( <ul>{listItems}</ul> );
+                    
+                   return ( <ul i key={listItems.products_id} >{listItems.name}</ul > );
                     
               
                    
