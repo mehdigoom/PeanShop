@@ -23,6 +23,9 @@ class PeanutBasket extends Component {
    // this.ajoutarticle= this.ajoutarticle.bind(this);
    
  }
+ populateHeader(jsonObj) {
+ 
+}
 
 
 Getarticle(ID){
@@ -62,7 +65,11 @@ Getbasket = (ID) => {
    this.Getbasket(this.state.ID)
 
  }
-
+totalprice(up){
+this.setState({
+  price:this.state.price+up
+})
+}
     render() {
       this.Getarticle(this.setState.IDarticle)
 
@@ -88,21 +95,15 @@ Getbasket = (ID) => {
               <div className='line second'>
               
                 <div>
-                 {/* {
+                 {
                    this.state.value.map(listItems => {
                   
-                   return ( <ul  key={listItems.products_id} ><img className="product" src={listItems.picture}></img> {listItems.name} {listItems.price}$</ul> );
+                   return ( <ul  key={listItems.products_id} ><img className='product' src={listItems.picture}></img> {listItems.name} {listItems.price}$</ul> );
                     
               
                    
                    })
-
-                 }  */}
-
-                 
                  } 
-               
-
                 </div>
               </div>
             )}
