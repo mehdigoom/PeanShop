@@ -145,7 +145,7 @@ class App extends React.Component {
           )}
           {/* <Poppin onClick={this.togglePoppin} children={<Login/>}/> */}
           <section className="sidebar">
-            {/* <PeanutBasket/> */}
+             <PeanutBasket/> 
             <div className="product-basket-wrapper">
               { productBasketItem }
             </div>
