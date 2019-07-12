@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './styles.css'
-import { getDefaultSettings } from 'http';
+
 
 class PeanutBasket extends Component {
 
@@ -14,6 +14,7 @@ class PeanutBasket extends Component {
        passeword:"",
        nombrearticle:0,
        IDarticle:0,
+       price:0,
        basket: [
       
        ],
@@ -92,21 +93,23 @@ Getbasket = (ID) => {
                 <div>
                  {
                    this.state.value.map(listItems => {
-                    
-                   return ( <ul i key={listItems.products_id} ><img className='product' src={listItems.picture}></img> {listItems.name}</ul > );
+                  
+                   return ( <ul  key={listItems.products_id} ><img className="product" src={listItems.picture}></img> {listItems.name} {listItems.price}$</ul> );
                     
               
                    
                    })
+                 
                  } 
+               
                 </div>
               </div>
             )}
 
             </section>
             <div className='line'>
-              <p>Total: </p>
-              <p>55$</p>
+              <p>Total:</p>
+              <p>{this.state.price}$</p>
             </div>
             <hr/>
             <div className='violet'>
