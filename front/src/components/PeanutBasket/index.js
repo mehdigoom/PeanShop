@@ -90,7 +90,7 @@ Getbasket = (ID) => {
               <div className='line second'>
                 <img className='product' alt='' src={require('./../../peanut_butter.jpg')}/>
                 <div>
-                 {
+                 {/* {
                    this.state.value.map(listItems => {
                      var numbers
                   numbers.map((number) => <li>{number}</li> ); return ( <ul>{listItems}</ul> );
@@ -98,7 +98,7 @@ Getbasket = (ID) => {
               
                    
                    })
-                 } 
+                 }  */}
                 </div>
               </div>
             )}
