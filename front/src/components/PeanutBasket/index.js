@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './styles.css'
-import { getDefaultSettings } from 'http';
+
 
 class PeanutBasket extends Component {
 
@@ -14,6 +14,7 @@ class PeanutBasket extends Component {
        passeword:"",
        nombrearticle:0,
        IDarticle:0,
+       price:0,
        basket: [
       
        ],
@@ -22,9 +23,6 @@ class PeanutBasket extends Component {
    // this.ajoutarticle= this.ajoutarticle.bind(this);
    
  }
- populateHeader(jsonObj) {
- 
-}
 
 
 Getarticle(ID){
@@ -88,25 +86,31 @@ Getbasket = (ID) => {
 
         
               <div className='line second'>
-                <img className='product' alt='' src={require('./../../peanut_butter.jpg')}/>
+              
                 <div>
                  {/* {
                    this.state.value.map(listItems => {
-                     var numbers
-                  numbers.map((number) => <li>{number}</li> ); return ( <ul>{listItems}</ul> );
+                  
+                   return ( <ul  key={listItems.products_id} ><img className="product" src={listItems.picture}></img> {listItems.name} {listItems.price}$</ul> );
                     
               
                    
                    })
+
                  }  */}
+
+                 
+                 } 
+               
+
                 </div>
               </div>
             )}
 
             </section>
             <div className='line'>
-              <p>Total: </p>
-              <p>55$</p>
+              <p>Total:</p>
+              <p>{this.state.price}$</p>
             </div>
             <hr/>
             <div className='violet'>

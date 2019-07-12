@@ -96,6 +96,7 @@ figure img {
   right: 0;
   top: 0;
   bottom: 0;
+  @include flex(center, center, column);
 }
 
 header {
@@ -134,4 +135,13 @@ header {
 
 .peanut-filter {
   width: 100%;
+}
+
+.product-basket-wrapper {
+  @include size(20rem, 100%);
+  overflow-y: auto;
+  padding: 1rem;
+  & > * {
+    margin: 2.5rem 0;
+  }
 }

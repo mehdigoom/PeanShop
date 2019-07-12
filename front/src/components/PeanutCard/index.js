@@ -7,7 +7,7 @@ class PeanutCard extends Component {
     return (
       <article className="peanut-card">
         <figure>
-          <img src={ src } alt={ alt } />
+          <img src={src} alt={alt} />
           <figcaption>${ price }</figcaption>
         </figure>
         <p>{ name }</p>
