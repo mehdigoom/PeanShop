@@ -53,10 +53,11 @@ class Login extends Component {
         email: JSON.parse(data).email,
         password: JSON.parse(data).password,
       })
+      alert('Connexion reussie')
     })
     .catch(function() {
-      console.log("error",
-      alert('Mauvais identifiants'));
+      console.log("error")
+      alert('Mauvais identifiants');
   });
 
 

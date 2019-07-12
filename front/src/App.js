@@ -75,6 +75,12 @@ class App extends React.Component {
     })
   }
 
+  toggleLogin = () => {
+    this.setState({
+      displayLogin: !this.state.displayLogin
+    })
+  }
+
   addProduct = async product => {
     const productItem = { 
       basket_id: product.basket_id,
@@ -124,7 +130,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { productList, product, displayModal, productBasket } = this.state
+    const { productList, product, displayModal, displayLogin, productBasket } = this.state
 
     const productItem = productList.map((product) => (
       <PeanutCard 
@@ -163,6 +169,11 @@ class App extends React.Component {
                 />
             </Poppin>
           )}
+          {displayLogin && (
+            <Poppin onClick={this.toggleLogin}>
+              <Login/>
+            </Poppin>
+          )}
           {/* <Poppin onClick={this.togglePoppin} children={<Login/>}/> */}
           <section className="sidebar">
 
@@ -171,7 +182,7 @@ class App extends React.Component {
               { productBasketItem }
             </div>
           </section>
-            <Header onLogin={this.togglePoppin}/>
+            <Header onLogin={this.toggleLogin}/>
 
           <section className="container -flex">
           <article className="delivery -flex">
