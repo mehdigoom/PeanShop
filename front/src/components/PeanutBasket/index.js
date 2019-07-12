@@ -23,9 +23,6 @@ class PeanutBasket extends Component {
    // this.ajoutarticle= this.ajoutarticle.bind(this);
    
  }
- populateHeader(jsonObj) {
- 
-}
 
 
 Getarticle(ID){

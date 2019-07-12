@@ -1,0 +1,17 @@
+@import '../../App.scss';
+
+.shopping-item {
+    @include size(6rem, 90%);
+    // background-color: red;
+    @include flex(space-between, center, row);
+    p {
+        display: inline-block;
+        margin: .2rem;
+    }
+}
+
+.shopping-item-picture {
+    @include size(100%, 9rem);
+    border-radius: 10px;
+    overflow: hidden;
+}

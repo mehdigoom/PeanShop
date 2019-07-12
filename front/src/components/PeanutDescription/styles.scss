@@ -1,0 +1,27 @@
+@import '../../App.scss';
+
+.product-description {
+    @include size(100%, 100%);
+    @include flex(center, center, row);
+    >  *{
+        @include size(100%, 50%);
+    }
+}
+
+.product-detail {
+    padding: 5rem;
+    > * {
+        margin: 2rem 0;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.product-description-button {
+    @include size(3rem, 10rem);
+    border-radius: 50px;
+    border: none;
+    background-color: $color-black;
+    color: $color-white;
+}
