@@ -6,6 +6,8 @@ import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
 import { productService } from './_services/product.service';
 import Poppin from './components/Poppin';
+import ProductDescription from './components/PeanutDescription';
+import ShoppingCardItem from './components/ShoppingCardItem';
 
 class App extends React.Component {
    constructor(props) {
@@ -15,7 +17,9 @@ class App extends React.Component {
         ID: "",
          nombrearticle:0,
          IDarticle:0,
-         productList: []
+         productList: [],
+         product: [],
+         productBasket: [],
       }
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
@@ -55,23 +59,47 @@ class App extends React.Component {
     })
   }
 
-  showDetails = (productId) => {
-    console.log('ID_PRODUCT', productId)
+  async showDetails(product) {
+    await this.setState({
+      product: product
+    })
     this.togglePoppin()
   }
   
-  togglePoppin = () => {
+  togglePoppin = (poppinChildren) => {
     this.setState({
       displayModal: !this.state.displayModal
     })
   }
+
+  addProduct = async product => {
+    const productItem = { 
+      basket_id: product.basket_id,
+      category: product.category,
+      description: product.description,
+      id: product.id,
+      name: product.name,
+      picture: product.picture,
+      price: product.price
+    }
+    await this.setState({
+      productBasket: [...this.state.productBasket, productItem]
+    })
+    // this.getTotalPrice(this.state.productBasket)
+  }
+
+  // getTotalPrice = (array) => {
+  //   const priceArray = array.find(elem => elem.price)
+  //   array.reduce((a, b) => ({x: a.x + b.x}));
+  //   console.log(priceArray);
+  // }
 
   componentDidMount() {
     this.getProduct()
   }
 
   render() {
-    const { productList, displayModal } = this.state
+    const { productList, product, displayModal, productBasket } = this.state
 
     const productItem = productList.map((product) => (
       <PeanutCard 
@@ -80,18 +108,40 @@ class App extends React.Component {
         alt={product.name}
         price={product.price}
         name={product.name}
-        showDetails={() => this.showDetails(product.id)}
-        // addToCard={}
+        showDetails={() => this.showDetails(product)}
+        addToCard={() => this.addProduct(product)}
+      />
+    ))
+
+    const productBasketItem = productBasket.map((product) => (
+      <ShoppingCardItem 
+        key={product.id}
+        src={product.picture}
+        alt={product.name}
+        price={product.price}
+        name={product.name}
+        quantity="1"
       />
     ))
 
     return (
         <section className="wrapper -flex">
           {displayModal && (
-            <Poppin onClick={this.togglePoppin} size="small"/>
+            <Poppin onClick={this.togglePoppin}>
+              <ProductDescription 
+                  src={product.picture}
+                  name={product.name}
+                  price={product.price}
+                  description={product.description}
+                  onClick={() => this.addProduct(product)}
+                />
+            </Poppin>
           )}
           <section className="sidebar">
-            <PeanutBasket/>
+            {/* <PeanutBasket/> */}
+            <div className="product-basket-wrapper">
+              { productBasketItem }
+            </div>
           </section>
           <section className="container -flex">
             <Header/>
